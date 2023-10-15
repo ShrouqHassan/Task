@@ -1,0 +1,32 @@
+﻿@model List<Catalog>
+
+@{
+    ViewData["Title"] = "GetAll";
+}
+
+<h1>GetAll</h1>
+
+<div>
+    <h4>Catalogs</h4>
+    <hr />
+   
+        <table class="table table-bordered table-hover">
+           <tr>       
+               <th>Created Date</th>
+           </tr>
+        @foreach(Catalog catalog in Model)
+        {
+            <tr>
+                <td>@catalog.CreatedDate</td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@catalog?.Id">Edit</a> 
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@catalog?.Id">Delete</a>
+                <td />
+            </tr>
+        }
+    </table>
+</div>
+<div>
+
+    <a asp-action="Index">Back to List</a>
+</div>
